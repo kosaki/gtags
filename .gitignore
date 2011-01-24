@@ -55,6 +55,8 @@ libparser/java_res.h
 libparser/php.c
 libparser/php_res.gpf
 libparser/php_res.h
+libparser/ruby_res.gpf
+libparser/ruby_res.h
 ltmain.sh
 Makefile
 Makefile.in

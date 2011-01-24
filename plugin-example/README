@@ -1,0 +1,40 @@
+This is an example of plug-in parser for gtags(1).
+
+This parser is built as a shared library, and is installed to
+/usr/local/lib/gtags by default.
+
+How to use a plug-in parser
+===========================
+
+To use this plug-in parser, please do like follows:
+(It assumed that Exuberant ctags exists in "/usr/local/bin".)
+
+	$ ./configure --with-exuberant-ctags=/usr/local/bin/ctags
+	$ make install
+	$ gtags --gtagsconf=/usr/local/share/gtags/gtags.conf --gtagslabel=plugin-example
+
+How to write a plug-in parser
+=============================
+
+You should write a parser function like follows:
+
+#include "parser.h"
+void
+parser(const struct parser_param *param)
+{
+        ...
+}
+
+A param argument is given to each parser function.
+You can write a tag using the param argument like follows:
+
+o write a tag to GTAGS
+
+	param->put(PARSER_DEF, <tag name>, <line no>, <file name>, <line image>, param->arg);
+
+o write a tag to GRTAGS
+
+	param->put(PARSER_REF_SYM, <tag name>, <line no>, <file name>, <line image>, param->arg);
+
+Note: 
+Gtags always makes GRTAGS even if you don't use PARSER_REF_SYM.

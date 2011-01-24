@@ -63,7 +63,7 @@ done
 #
 echo "- Preparing parser source ..."
 (cd libparser; set -x
-for lang in c cpp java php asm; do
+for lang in c cpp java php asm ruby ; do
 	name=${lang}_res
 	perl ./reserved.pl --prefix=$lang ${lang}_res.in > ${name}.gpf
 	option=`perl ./reserved.pl --prefix=$lang --option`

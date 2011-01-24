@@ -209,7 +209,8 @@ static const struct lang_entry lang_switch[] = {
 	{"cpp",		Cpp},
 	{"java",	java},
 	{"php",		php},
-	{"asm",		assembly}
+	{"asm",		assembly},
+	{"ruby",	ruby},
 };
 #define DEFAULT_ENTRY &lang_switch[0]
 /*
